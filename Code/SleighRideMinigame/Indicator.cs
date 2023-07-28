@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Rekiviskaus {
-    public class Indicator_2 : MonoBehaviour {
+namespace SleighRide {
+    public class Indicator : MonoBehaviour {
 
         [SerializeField] private Transform _player;
 
