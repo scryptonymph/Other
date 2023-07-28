@@ -6,9 +6,9 @@ using UnityEngine.UI;
 // (using the accelerometer) to guide the character's canoe safely down the river
 // as the background and its hazards scrolls by.
 public class CanoeingLevel : MonoBehaviour {
-    public static LevelManager27 Instance = null;
+    public static LevelManager Instance = null;
 
-    private SoundManager27 _soundManager;
+    private SoundManager _soundManager;
 
     private Camera _camera;
 
@@ -57,7 +57,7 @@ public class CanoeingLevel : MonoBehaviour {
     }
 
     private void Start() {
-        _soundManager = SoundManager27.Instance;
+        _soundManager = SoundManager.Instance;
             
         _camera = Camera.main;
 
