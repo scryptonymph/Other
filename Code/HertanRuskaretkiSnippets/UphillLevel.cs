@@ -8,9 +8,9 @@ using UnityEngine.UI;
 // two sliders continuously one after the other to make characters walk up 
 // a hill. If the player pauses, the characters begin to slide down.
 public class UphillLevel : MonoBehaviour {
-    public static LevelManager17 Instance = null;
+    public static LevelManager Instance = null;
 
-    private SoundManager17 _soundManager;
+    private SoundManager _soundManager;
 
     private Camera _camera;
 
@@ -68,7 +68,7 @@ public class UphillLevel : MonoBehaviour {
     }
 
     private void Start() {
-        _soundManager = SoundManager17.Instance;
+        _soundManager = SoundManager.Instance;
 
         _camera = Camera.main;
 
