@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Rekiviskaus {
-    public class FireworkSpawner_2 : MonoBehaviour {
+namespace SleighRide {
+    public class FireworkSpawner : MonoBehaviour {
 
         [SerializeField] private Transform _player;
 
@@ -17,13 +17,13 @@ namespace Rekiviskaus {
 
         private bool _spawn;
 
-        private Sled_2 _playerScript;
+        private Sled _playerScript;
 
         // Use this for initialization
         void Start() {
             _previousPosition = _player.position;
 
-            _playerScript = _player.gameObject.GetComponent<Sled_2>();
+            _playerScript = _player.gameObject.GetComponent<Sled>();
         }
 
         // Update is called once per frame
