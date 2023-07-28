@@ -2,15 +2,15 @@
 using UnityEngine;
 
 // A level in the Hertan Ruskaretki remake where the player has to make 
-// flapjacks for the characters, pouring the correct amount of batter 
-// on to a skillet, flip the flapjack by tilting the phone (using 
+// crepes for the characters, pouring the correct amount of batter 
+// on to a skillet, flip the crepe by tilting the phone (using 
 // the accelerator, with outcomes of too little, correct, too much) 
 // and slide it onto a plate before it visually burns (using 
 // the accelerometer and a timer connected to a gradual color change).
 public class FlapjackLevel : MonoBehaviour {
-    public static LevelManager29 Instance = null;
+    public static LevelManager Instance = null;
 
-    private SoundManager29 _soundManager;
+    private SoundManager _soundManager;
 
     private Camera _camera;
 
@@ -77,7 +77,7 @@ public class FlapjackLevel : MonoBehaviour {
     }
 
     private void Start() {
-        _soundManager = SoundManager29.Instance;
+        _soundManager = SoundManager.Instance;
 
         _camera = Camera.main;
 
