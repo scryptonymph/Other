@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Rekiviskaus {
-    public class ObjectSpawner_2 : MonoBehaviour {
+namespace SleighRide {
+    public class ObjectSpawner : MonoBehaviour {
 
-        private GameManager_2 _gameManager;
+        private GameManager _gameManager;
 
         [SerializeField] private Transform _player;
 
@@ -25,7 +25,7 @@ namespace Rekiviskaus {
 
         // Use this for initialization
         void Start() {
-            _gameManager = GameManager_2.Instance;
+            _gameManager = GameManager.Instance;
 
             _previousPosition = _player.position;
 
