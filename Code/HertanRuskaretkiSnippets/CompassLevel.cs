@@ -5,9 +5,9 @@ using UnityEngine;
 // a compass needle to point to the correct random cardinal point cued 
 // by audio.
 public class CompassLevel : MonoBehaviour {
-    public static LevelManager24 Instance = null;
+    public static LevelManager Instance = null;
 
-    private SoundManager24 _soundManager;
+    private SoundManager _soundManager;
 
     private Camera _camera;
 
@@ -52,7 +52,7 @@ public class CompassLevel : MonoBehaviour {
     }
 
     private void Start() {
-        _soundManager = SoundManager24.Instance;
+        _soundManager = SoundManager.Instance;
             
         _camera = Camera.main;
 
