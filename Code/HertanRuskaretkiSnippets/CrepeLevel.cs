@@ -25,7 +25,7 @@ public class FlapjackLevel : MonoBehaviour {
     [SerializeField] private float _overflowScale;
     [SerializeField] private float _correctThrowTime;
     [SerializeField] private float _correctThrowTimeOffset;
-    [SerializeField] private GameObject[] _uiFlapjacks;
+    [SerializeField] private GameObject[] _uiCrepes;
     [SerializeField] private GameObject _uiFlip;
     [SerializeField] private GameObject _uiTilt;
     [SerializeField] private GameObject _plate;
@@ -38,7 +38,7 @@ public class FlapjackLevel : MonoBehaviour {
 
     private Vector3 _originalScale;
 
-    private SVGImage _readyFlapjack;
+    private SVGImage _readyCrepe;
 
     private Coroutine _startRoutine;
     private bool _began = false;
@@ -63,7 +63,7 @@ public class FlapjackLevel : MonoBehaviour {
 
     private bool _wasPoured = false;
 
-    private int _flapjackCount = 0;
+    private int _crepeCount = 0;
 
     private float _startAcceleration = 0f;
     private float _peakAcceleration = 0f;
@@ -87,7 +87,7 @@ public class FlapjackLevel : MonoBehaviour {
 
         _originalScale = _batters[0].localScale;
 
-        _readyFlapjack = _batters[2].GetComponent<SVGImage>();
+        _readyCrepe = _batters[2].GetComponent<SVGImage>();
 
         _startRoutine = StartCoroutine(WaitForPlayerInput());
     }
@@ -450,15 +450,15 @@ public class FlapjackLevel : MonoBehaviour {
 
         _soundManager.PlaySound(8);
 
-        _uiFlapjacks[_flapjackCount].SetActive(true);
+        _uiCrepes[_crepeCount].SetActive(true);
             
-        _flapjackCount++;
+        _crepeCount++;
 
         yield return new WaitForSeconds(_waitTime / 4f);
 
         _plate.SetActive(false);
 
-        if (_flapjackCount < _uiFlapjacks.Length) {
+        if (_crepeCount < _uiCrepes.Length) {
             _cooking = false;
 
             _batters[2].gameObject.SetActive(false);
@@ -471,15 +471,15 @@ public class FlapjackLevel : MonoBehaviour {
 
             yield return new WaitForSeconds(2f);
                 
-            _readyFlapjack.color = Color.white;
+            _readyCrepe.color = Color.white;
         } else {
             _sceneAnimator.GetComponent<SceneLoader>().LoadInterimScene(_nextScene);
         }
     }
 
     private void Brown() {
-        if (_readyFlapjack.color.r > 0.5f) {
-            _readyFlapjack.color = new Color(_readyFlapjack.color.r - (0.1f * Time.deltaTime), _readyFlapjack.color.g - (0.1f * Time.deltaTime), _readyFlapjack.color.b - (0.1f * Time.deltaTime));
+        if (_readyCrepe.color.r > 0.5f) {
+            _readyCrepe.color = new Color(_readyCrepe.color.r - (0.1f * Time.deltaTime), _readyCrepe.color.g - (0.1f * Time.deltaTime), _readyCrepe.color.b - (0.1f * Time.deltaTime));
         } else {
             _tilt = false;
 
@@ -493,7 +493,7 @@ public class FlapjackLevel : MonoBehaviour {
 
             _cooking = false;
 
-            _readyFlapjack.color = Color.white;
+            _readyCrepe.color = Color.white;
 
             _bottle.SetActive(true);
 
