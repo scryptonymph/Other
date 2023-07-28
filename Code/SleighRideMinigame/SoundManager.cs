@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-namespace Rekiviskaus {
-    public class SoundManager_2 : MonoBehaviour {
+namespace SleighRide {
+    public class SoundManager : MonoBehaviour {
         [SerializeField] private AudioSource[] _audioSources;
         [SerializeField] private AudioClip _music;
         [SerializeField] private AudioClip[] _rocketBoosts;
@@ -15,7 +15,7 @@ namespace Rekiviskaus {
         [SerializeField] private AudioClip _endFanfare;
         [SerializeField] private AudioClip _endBearCongrats;
 
-        public static SoundManager_2 Instance = null;
+        public static SoundManager Instance = null;
 
         void Awake() {
             if (Instance == null)
