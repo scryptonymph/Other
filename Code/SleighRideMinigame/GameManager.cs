@@ -2,11 +2,11 @@
 using TMPro;
 using UnityEngine;
 
-namespace Rekiviskaus {
-    public class GameManager_2 : MonoBehaviour {
+namespace SleighRide {
+    public class GameManager : MonoBehaviour {
 
-        public static GameManager_2 Instance = null;
-        private SoundManager_2 _soundManager;
+        public static GameManager Instance = null;
+        private SoundManager _soundManager;
 
         [SerializeField] private GameObject _canvas;
         private Animator _canvasUiAnim;
@@ -46,7 +46,7 @@ namespace Rekiviskaus {
 
         // Use this for initialization
         void Start() {
-            _soundManager = SoundManager_2.Instance;
+            _soundManager = SoundManager.Instance;
 
             _canvasUiAnim = _canvas.GetComponent<Animator>();
             _camera = Camera.main;

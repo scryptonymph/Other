@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Rekiviskaus {
-    public class CameraFollow_2 : MonoBehaviour {
+namespace SleighRide {
+    public class CameraFollow : MonoBehaviour {
 
         [SerializeField] private Transform _player;
 

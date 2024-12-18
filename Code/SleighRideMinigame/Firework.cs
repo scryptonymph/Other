@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Rekiviskaus {
-    public class Firework_2 : MonoBehaviour {
+namespace SleighRide {
+    public class Firework : MonoBehaviour {
 
-        private GameManager_2 _gameManager;
-        private SoundManager_2 _soundManager;
+        private GameManager _gameManager;
+        private SoundManager _soundManager;
 
         [SerializeField] private Transform _player;
 
@@ -22,8 +22,8 @@ namespace Rekiviskaus {
 
         // Use this for initialization
         void Start() {
-            _gameManager = GameManager_2.Instance;
-            _soundManager = SoundManager_2.Instance;
+            _gameManager = GameManager.Instance;
+            _soundManager = SoundManager.Instance;
 
             _particle = GetComponentInParent<ParticleSystem>();
 
@@ -56,7 +56,7 @@ namespace Rekiviskaus {
 
         private void OnTriggerEnter2D(Collider2D collider) {
             if (collider.gameObject.CompareTag("Player")) {
-                Sled_2 player = collider.gameObject.GetComponent<Sled_2>();
+                Sled player = collider.gameObject.GetComponent<Sled>();
 
                 if (player.FireworkCurrentCount < player.FireworkMaxCount) {
                     _particle.Emit(20);

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Rekiviskaus {
-    public class FireworkSpawner_2 : MonoBehaviour {
+namespace SleighRide {
+    public class ObjectSpawner : MonoBehaviour {
+
+        private GameManager _gameManager;
 
         [SerializeField] private Transform _player;
 
@@ -15,25 +17,23 @@ namespace Rekiviskaus {
         [SerializeField] private float _spawnAheadOffset;
         [SerializeField] private float _spawnHeight;
 
-        private bool _spawn;
+        private List<Transform> _objectPool;
 
-        private Sled_2 _playerScript;
+        [SerializeField] private int _maxObjectPoolSize;
+
+        private bool _poolEmpty = false;
 
         // Use this for initialization
         void Start() {
+            _gameManager = GameManager.Instance;
+
             _previousPosition = _player.position;
 
-            _playerScript = _player.gameObject.GetComponent<Sled_2>();
+            _objectPool = new List<Transform>();
         }
 
         // Update is called once per frame
         void Update() {
-            if (_playerScript.FireworkCurrentCount < _playerScript.FireworkMaxCount) {
-                _spawn = true;
-            } else {
-                return;
-            }
-
             if ((_player.position.x - _previousPosition.x) > _spawnDistance) {
                 Spawn();
 
@@ -45,6 +45,14 @@ namespace Rekiviskaus {
             int spawnIndex = Random.Range(0, _objects.Count);
 
             Transform objectToSpawn = Instantiate(_objects[spawnIndex], new Vector2(_player.position.x + _spawnAheadOffset, _spawnHeight), Quaternion.identity);
+
+            _objectPool.Add(objectToSpawn);
+
+            if (_objectPool.Count > _maxObjectPoolSize) {
+                Destroy(_objectPool[0].gameObject);
+
+                _objectPool.RemoveAt(0);
+            }
         }
     }
 }

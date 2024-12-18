@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Rekiviskaus {
-    public class Sled_2 : MonoBehaviour {
+namespace SleighRide {
+    public class Sled : MonoBehaviour {
 
-        private GameManager_2 _gameManager;
-        private SoundManager_2 _soundManager;
+        private GameManager _gameManager;
+        private SoundManager _soundManager;
 
         private GameObject _rocketButton;
         [SerializeField] private Animator _canvasAnim;
@@ -70,8 +70,8 @@ namespace Rekiviskaus {
         }
         
         private void Start() {
-            _gameManager = GameManager_2.Instance;
-            _soundManager = SoundManager_2.Instance;
+            _gameManager = GameManager.Instance;
+            _soundManager = SoundManager.Instance;
 
             _spring = GetComponent<SpringJoint2D>();
             _projectileRigidbody = GetComponent<Rigidbody2D>();

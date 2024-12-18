@@ -6,9 +6,9 @@ using Coffee.UIExtensions;
 // a character an appropriate time visualized by a meter to make the character 
 // jump across a swamp.
 public class SwampJumpLevel : MonoBehaviour {
-    public static LevelManager22_1 Instance = null;
+    public static LevelManager Instance = null;
 
-    private SoundManager22_1 _soundManager;
+    private SoundManager _soundManager;
 
     private Camera _camera;
 
@@ -48,7 +48,7 @@ public class SwampJumpLevel : MonoBehaviour {
     }
 
     private void Start() {
-        _soundManager = SoundManager22_1.Instance;
+        _soundManager = SoundManager.Instance;
 
         _camera = Camera.main;
 

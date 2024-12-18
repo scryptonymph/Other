@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Rekiviskaus {
-    public class BGScroller_2 : MonoBehaviour {
+namespace SleighRide {
+    public class BGScroller : MonoBehaviour {
 
         [SerializeField] private float _speed;
 

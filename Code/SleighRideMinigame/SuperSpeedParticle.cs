@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Rekiviskaus {
-    public class SuperSpeedParticle_2 : MonoBehaviour {
+namespace SleighRide {
+    public class SuperSpeedParticle : MonoBehaviour {
 
         public ParticleSystem particle;
-        Rigidbody2D rb;
+        public Rigidbody2D rb;
+        
         // Use this for initialization
         void Start() {
             particle = GetComponentInChildren<ParticleSystem>();
