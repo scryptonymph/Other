@@ -1,4 +1,4 @@
--- Example of stored procedure creation for fetching required data for a report, used as part of website functionality where a user can give parameters and then get a report based on the input
+-- Example of creating a stored procedure that could be used to fetch the correct SQL view with user-given parameters. This was used as part of internal website functionality where a user could give parameters and then get an Excel report based on the input.
 
 CREATE PROCEDURE sp_ViewReport_FetchReportData
 @reportId INT,
@@ -30,7 +30,8 @@ BEGIN
 		END
 	IF (@useDateFiltering = 1)
 		BEGIN
-			SET @viewReportQuery = @viewReportQuery + @command + 'startDate BETWEEN @startDate AND @endDate';			END
+			SET @viewReportQuery = @viewReportQuery + @command + 'startDate BETWEEN @startDate AND @endDate';			
+		END
 
 	SET @parameters = '@reportId INT, @advertiserId INT, @mediaAgencyID INT, @startDate DATETIME, @endDate DATETIME';
 
